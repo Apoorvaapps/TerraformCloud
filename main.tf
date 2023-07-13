@@ -68,12 +68,12 @@ resource "azurerm_linux_virtual_machine" "my_terraform_vm" {
   }
   computer_name                   = "myvm"
   admin_username                  = "azureuser"
-  disable_password_authentication = true
+  disable_password_authentication = false
 }
 
 # Create database server
 resource "azurerm_mssql_server" "server" {
-  name                         = "sampledbserver"
+  name                         = "sampledbserver657"
   resource_group_name          = azurerm_resource_group.rg.name
   location                     = azurerm_resource_group.rg.location
   administrator_login          = var.admin_username
@@ -83,6 +83,6 @@ resource "azurerm_mssql_server" "server" {
 
 # Create database
 resource "azurerm_mssql_database" "db" {
-  name      = "sampledb"
+  name      = "sampledb657"
   server_id = azurerm_mssql_server.server.id
 }
