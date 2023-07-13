@@ -56,7 +56,7 @@ resource "azurerm_linux_virtual_machine" "my_terraform_vm" {
   network_interface_ids = [azurerm_network_interface.my_terraform_nic[count.index].id,]
   size                  = "Standard_DS1_v2"
    os_disk {
-    name                 = "myOsDisk-${count.index}"
+    name                 = "myOsDisk-${count.index + 1}"
     caching              = "ReadWrite"
     storage_account_type = "Standard_LRS"
   }
